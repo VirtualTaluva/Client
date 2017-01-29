@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--<DataTemplate DataType="{x:Type vmBkpRldVln:BkpVlnResultViewModel}">
+        <views:BkpVlnResultView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmBkpRldVln:RldVlnResultViewModel}">
+        <views:RldVlnResultView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmAlisImage:AlisImageResultViewModel}">
+        <views:AlisImageResultView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmIceman:IcemanResultViewModel}">
+        <views:IcemanResultView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmVlnImage:VlnImageResultViewModel}">
+        <views:VlnImageResultView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmCycleTradFiscal:CycleTradFiscalResultViewModel}">
+        <views:CycleTradResultView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmParalleleAlis:ParalleleAlisResultViewModel}">
+        <views:ParalleleAlisResultView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmParalleleAlis:CompareResultViewModel}">
+        <views1:CompareResultView />
+    </DataTemplate>-->
+    <!--<DataTemplate DataType="{x:Type vmDesleg:ExtractionDeslegResultViewModel}">
+        <views:ExtDeslegResultView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmScpr:ExtractionScprResultViewModel}">
+        <views:ExtScprResultView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmGe:ExtractionGeResultViewModel}">
+        <views:ExtGeResultView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmAlis:ExtractionAlisVlnResultViewModel}">
+        <views:ExtAlisVlnResultView />
+    </DataTemplate>-->
+
+</ResourceDictionary>

@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewModels="clr-namespace:VirtualTaluva.ClientWpf.ViewModels"
+                    xmlns:views="clr-namespace:Com.Ericmas001.Windows.Xaml.Views;assembly=Com.Ericmas001.Windows.Xaml">
+    
+    <DataTemplate DataType="{x:Type viewModels:NewTaskViewModel}">
+        <views:MultiCategoriesNewTabView />
+    </DataTemplate>
+    <!--<DataTemplate DataType="{x:Type vmBkpRldVln:BkpRldVlnSection}">
+        <sections:BkpRldVlnSection />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmAlisImage:AlisImageSection}">
+        <sections:AlisImageSection />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmIceman:IcemanSection}">
+        <sections:IcemanSection />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmVlnImage:VlnImageSection}">
+        <sections:VlnImageSection />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmCycleTrafFiscal:CycleTradFiscalSection}">
+        <sections:CycleTradFiscalSection />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmParalleleAlis:ParalleleAlisSection}">
+        <sections:ParalleleAlisSection />
+    </DataTemplate>-->
+    <!--<DataTemplate DataType="{x:Type vmOutmess:ExtractionOutmessSection}">
+        <sections:ExtOutmessSection />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vmDesleg:ExtractionDeslegSection}">
+        <sections:ExtDeslegSection />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type extScpr:ExtractionScprSection}">
+        <sections:ExtScprSection />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type extGe:ExtractionGeSection}">
+        <sections:ExtGeSection />
+    </DataTemplate>-->
+
+</ResourceDictionary>

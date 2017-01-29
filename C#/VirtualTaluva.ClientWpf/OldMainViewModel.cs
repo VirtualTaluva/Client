@@ -12,7 +12,7 @@ using VirtualTaluva.Client.DataTypes.Enums;
 
 namespace VirtualTaluva.ClientWpf
 {
-    public class MainViewModel : BaseViewModel, IBoard
+    public class OldMainViewModel : BaseViewModel, IBoard
     {
         public class LandDescription
         {
@@ -98,7 +98,7 @@ namespace VirtualTaluva.ClientWpf
         public LandDealer Dealer { get; }
         public RelayCommand AcceptCommand => m_AcceptCommand ?? (m_AcceptCommand = new RelayCommand(Accept, () => CurrentTile.State == PlayingTileStateEnum.ActiveCorrect));
         
-        public MainViewModel()
+        public OldMainViewModel()
         {
             for (int i = Global.NB_TILES / 2 - 5; i < Global.NB_TILES / 2 + 5; ++i)
                 for (int k = 0; k < 10; ++k)

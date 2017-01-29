@@ -1,4 +1,4 @@
-﻿<Window x:Class="VirtualTaluva.ClientWpf.MainWindow"
+﻿<Window x:Class="VirtualTaluva.ClientWpf.OldMainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,9 +9,9 @@
         xmlns:effects="clr-namespace:Com.Ericmas001.Windows.Xaml.Effects;assembly=Com.Ericmas001.Windows.Xaml"
         xmlns:clientWpf="clr-namespace:VirtualTaluva.ClientWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="621" Width="1125.728">
+        Title="MainWindow" Height="621" Width="1125.728" Icon="Resources/taluva.png">
     <Window.DataContext>
-        <clientWpf:MainViewModel />
+        <clientWpf:OldMainViewModel />
     </Window.DataContext>
     <Window.Resources>
         <ResourceDictionary>

@@ -1,0 +1,30 @@
+﻿<Window x:Class="VirtualTaluva.ClientWpf.Xaml.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VirtualTaluva.ClientWpf"
+        xmlns:viewModels="clr-namespace:VirtualTaluva.ClientWpf.ViewModels"
+        xmlns:helpers="clr-namespace:Com.Ericmas001.Windows.Xaml.Helpers;assembly=Com.Ericmas001.Windows.Xaml"
+        mc:Ignorable="d"
+        Title="Virtual Taluva" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="MainWindow_OnLoaded" Icon="/VirtualTaluva.ClientWpf;component/Resources/taluva.png">
+
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Com.Ericmas001.Windows.Xaml;component/Templates/TabTemplate.xaml" />
+                <ResourceDictionary Source="/Xaml/Templates/NewTabTemplates.xaml"/>
+                <ResourceDictionary Source="/Xaml/Templates/ResultTemplates.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo ProgressState="{Binding ProgressState}" ProgressValue="{Binding ProgressValue}" />
+    </Window.TaskbarItemInfo>
+    <Grid>
+        <TabControl ItemTemplate="{StaticResource TabHeaderDataTemplate}" ItemsSource="{Binding Tabs}" SelectedItem="{Binding SelectedTab}" helpers:TabControlHelper.IsCached="true" Loaded="FrameworkElement_OnLoaded"></TabControl>
+    </Grid>
+</Window>

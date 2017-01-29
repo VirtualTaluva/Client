@@ -18,9 +18,9 @@ namespace VirtualTaluva.ClientWpf
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OldMainWindow : Window
     {
-        public MainWindow()
+        public OldMainWindow()
         {
             InitializeComponent();
         }
