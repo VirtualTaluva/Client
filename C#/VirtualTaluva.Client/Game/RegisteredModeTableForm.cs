@@ -1,4 +1,4 @@
-﻿using VirtualTaluva.DataTypes;
+﻿using VirtualTaluva.Client.DataTypes;
 using VirtualTaluva.Client.Windows.Forms.Game;
 
 namespace VirtualTaluva.Client.Game

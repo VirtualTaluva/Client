@@ -1,4 +1,4 @@
-﻿using VirtualTaluva.DataTypes;
+﻿using VirtualTaluva.Client.DataTypes;
 using VirtualTaluva.Protocol.Lobby;
 using VirtualTaluva.Protocol.Lobby.RegisteredMode;
 

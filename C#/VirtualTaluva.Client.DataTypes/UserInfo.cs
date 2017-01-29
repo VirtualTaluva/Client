@@ -1,4 +1,4 @@
-﻿namespace VirtualTaluva.DataTypes
+﻿namespace VirtualTaluva.Client.DataTypes
 {
     public class UserInfo
     {

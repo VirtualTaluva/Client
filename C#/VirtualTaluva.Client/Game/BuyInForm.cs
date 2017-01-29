@@ -1,7 +1,7 @@
 ﻿using VirtualTaluva.Client.Properties;
-using VirtualTaluva.DataTypes;
 using System;
 using System.Windows.Forms;
+using VirtualTaluva.Client.DataTypes;
 using VirtualTaluva.Protocol.DataTypes;
 
 namespace VirtualTaluva.Client.Game

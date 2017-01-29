@@ -1,0 +1,171 @@
+﻿<Window x:Class="VirtualTaluva.ClientWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:markupExtensions="clr-namespace:Com.Ericmas001.Windows.MarkupExtensions;assembly=Com.Ericmas001.Windows"
+        xmlns:stuff="clr-namespace:VirtualTaluva.Client.DataTypes.StuffOnTile;assembly=VirtualTaluva.Client.DataTypes"
+        xmlns:helpers="clr-namespace:Com.Ericmas001.Windows.Xaml.Helpers;assembly=Com.Ericmas001.Windows.Xaml"
+        xmlns:effects="clr-namespace:Com.Ericmas001.Windows.Xaml.Effects;assembly=Com.Ericmas001.Windows.Xaml"
+        xmlns:clientWpf="clr-namespace:VirtualTaluva.ClientWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="621" Width="1125.728">
+    <Window.DataContext>
+        <clientWpf:MainViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <InputBindingCollection x:Key="MyInputBindings">
+                        <MouseBinding Gesture="{markupExtensions:MouseWheel Direction=Down, Keys=Control}" Command="{Binding ZoomOutCommand}" />
+                        <MouseBinding Gesture="{markupExtensions:MouseWheel Direction=Up, Keys=Control}" Command="{Binding ZoomInCommand}" />
+                        <KeyBinding Key="Tab" Command="{Binding RotateCommand}" />
+                        <KeyBinding Key="Tab" Modifiers="Control" Command="{Binding AntiRotateCommand}" />
+                        <KeyBinding Key="Left" Command="{Binding LeftCommand}" />
+                        <KeyBinding Key="Right" Command="{Binding RightCommand}" />
+                        <KeyBinding Key="Up" Command="{Binding UpCommand}" />
+                        <KeyBinding Key="Down" Command="{Binding DownCommand}" />
+                        <KeyBinding Key="Left" Modifiers="Control" Command="{Binding MoreLeftCommand}" />
+                        <KeyBinding Key="Right" Modifiers="Control" Command="{Binding MoreRightCommand}" />
+                        <KeyBinding Key="Up" Modifiers="Control" Command="{Binding MoreUpCommand}" />
+                        <KeyBinding Key="Down" Modifiers="Control" Command="{Binding MoreDownCommand}" />
+                        <KeyBinding Key="Enter" Command="{Binding AcceptCommand}" />
+                    </InputBindingCollection>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.Style>
+        <Style>
+            <Setter Property="helpers:InputBindingHelper.InputBindings" Value="{StaticResource MyInputBindings}" />
+        </Style>
+    </Window.Style>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Margin="10">
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Button Margin="5" VerticalAlignment="Center" Command="{Binding ZoomOutCommand}">-</Button>
+                <TextBlock Margin="5" VerticalAlignment="Center" Text="{Binding ZoomValue}" />
+                <Button Margin="5" VerticalAlignment="Center" Command="{Binding ZoomInCommand}">+</Button>
+                <Button Margin="25,5,5,5" VerticalAlignment="Center" Command="{Binding AntiRotateCommand}">↶</Button>
+                <Button Margin="5,5,5,5" VerticalAlignment="Center" Command="{Binding RotateCommand}">↷</Button>
+                <Button Margin="25,5,2,5" VerticalAlignment="Center" Command="{Binding LeftCommand}">◀</Button>
+                <Button Margin="2,5,2,5" VerticalAlignment="Center" Command="{Binding UpCommand}">▲</Button>
+                <Button Margin="2,5,5,5" VerticalAlignment="Center" Command="{Binding DownCommand}">▼</Button>
+                <Button Margin="2,5,2,5" VerticalAlignment="Center" Command="{Binding RightCommand}">▶</Button>
+                <Button Margin="25,5,2,5" VerticalAlignment="Center" Command="{Binding MoreLeftCommand}">◀+</Button>
+                <Button Margin="2,5,2,5" VerticalAlignment="Center" Command="{Binding MoreUpCommand}">▲+</Button>
+                <Button Margin="2,5,5,5" VerticalAlignment="Center" Command="{Binding MoreDownCommand}">▼+</Button>
+                <Button Margin="2,5,2,5" VerticalAlignment="Center" Command="{Binding MoreRightCommand}">▶+</Button>
+                <Button Margin="25,5,2,5" VerticalAlignment="Center" Command="{Binding AcceptCommand}">GO</Button>
+                <TextBlock Text="{Binding CurrentTilePositions, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="25,5,2,5" />
+            </StackPanel>
+            <ItemsControl ItemsSource="{Binding AvailableLands}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="25,0,0,0" Orientation="Horizontal">
+                            <Rectangle Fill="{Binding Brush}" Width="20" Height="20" Stroke="Black" StrokeThickness="2" VerticalAlignment="Center" />
+                            <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="{Binding Name}" FontWeight="Bold" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Background="CadetBlue">
+            <ScrollViewer.Style>
+                <Style>
+                    <Setter Property="helpers:InputBindingHelper.InputBindings" Value="{StaticResource MyInputBindings}" />
+                </Style>
+            </ScrollViewer.Style>
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                <Grid.LayoutTransform>
+                    <ScaleTransform ScaleX="{Binding Scale, UpdateSourceTrigger=PropertyChanged}" ScaleY="{Binding Scale, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid.LayoutTransform>
+                <ItemsControl ItemsSource="{Binding Board}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Grid />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Path d:LayoutOverrides="None" d:LastTangent="0,0" Stroke="Black" Fill="CadetBlue" Margin="{Binding Margin}" Data="M34.641016,0 L69.282032,20 69.282032,60 34.641016,80 0,60 0,20 34.641016,0 z"/>
+                                <TextBlock Text="{Binding Pos}" Margin="{Binding PosMargin}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <ItemsControl ItemsSource="{Binding PlayingTiles}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Grid />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Path d:LayoutOverrides="None" d:LastTangent="0,0" Stroke="{Binding StrokeColor}" StrokeThickness="{Binding StrokeThickness}" Margin="{Binding CurrentMargin}" x:Name="PathTile"
+                      Data="
+                      M0,-70 
+                      L34.641016,-50 
+                      34.641016,-10 
+                      69.282032,10 
+                      69.282032,50 
+                      34.641016,70 
+                      0,50 
+                      -34.641016,70 
+                      -69.282032,50  
+                      -69.282032,10 
+                      -34.641016,-10 
+                      -34.641016,-50 
+                      0,-70 
+                      z">
+                                <Path.RenderTransform>
+                                    <RotateTransform CenterX="0.5" CenterY="0.5" Angle="{Binding RotateAngle}"></RotateTransform>
+                                </Path.RenderTransform>
+                                <Path.Fill>
+                                    <VisualBrush AutoLayoutContent="True">
+                                        <VisualBrush.Visual>
+                                            <Grid>
+                                                <DockPanel>
+                                                    <Rectangle Fill="White" Width="100" Height="100">
+                                                        <Rectangle.Effect>
+                                                            <effects:AngularGradientEffect CenterPoint="0.5,0.55" PrimaryColor="{Binding TopColor}" SecondaryColor="{Binding LeftColor}" ThirdColor="{Binding RightColor}" />
+                                                        </Rectangle.Effect>
+                                                    </Rectangle>
+                                                </DockPanel>
+                                                <ItemsControl ItemsSource="{Binding StuffOnTile}">
+                                                    <ItemsControl.ItemsPanel>
+                                                        <ItemsPanelTemplate>
+                                                            <Grid />
+                                                        </ItemsPanelTemplate>
+                                                    </ItemsControl.ItemsPanel>
+                                                    <ItemsControl.Resources>
+                                                        <ResourceDictionary>
+                                                            <DataTemplate DataType="{x:Type stuff:LevelIndicator}">
+                                                                <TextBlock Margin="{Binding CurrentMargin}" Background="Black" Foreground="White" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="8" Padding="3,0,3,0" FontWeight="Bold" Text="{Binding Level}">
+                                                                    <TextBlock.RenderTransform>
+                                                                        <RotateTransform CenterX="0.5" CenterY="0.5" Angle="{Binding AntiRotateAngle}" />
+                                                                    </TextBlock.RenderTransform>
+                                                                </TextBlock>
+                                                            </DataTemplate>
+                                                        </ResourceDictionary>
+                                                    </ItemsControl.Resources>
+                                                </ItemsControl>
+                                            </Grid>
+                                        </VisualBrush.Visual>
+                                    </VisualBrush>
+                                </Path.Fill>
+                            </Path>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

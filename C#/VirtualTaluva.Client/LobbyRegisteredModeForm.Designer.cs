@@ -252,11 +252,11 @@ namespace VirtualTaluva.Client
             // 
             this.tableList.BackColor = System.Drawing.Color.White;
             this.tableList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableList.LobbyType = LobbyTypeEnum.RegisteredMode;
+//            this.tableList.LobbyType = LobbyTypeEnum.RegisteredMode;
             this.tableList.Location = new System.Drawing.Point(0, 0);
             this.tableList.Name = "tableList";
-            this.tableList.ShowRegisteredMode = true;
-            this.tableList.ShowQuickMode = false;
+  //          this.tableList.ShowRegisteredMode = true;
+  //          this.tableList.ShowQuickMode = false;
             this.tableList.Size = new System.Drawing.Size(477, 131);
             this.tableList.TabIndex = 8;
             this.tableList.OnListRefreshed += new System.EventHandler(this.tableList_OnListRefreshed);
