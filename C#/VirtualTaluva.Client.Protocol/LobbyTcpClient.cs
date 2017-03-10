@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Threading;
 using VirtualTaluva.Client.DataTypes;
 using VirtualTaluva.Protocol;
@@ -187,12 +190,23 @@ namespace VirtualTaluva.Client.Protocol
             return WaitAndReceive<JoinTableResponse>();
         }
 
-        public IEnumerable<GameInfo> GetSupportedRules()
+        public Compatibility CheckServerCompatibility(string clientIdentification)
         {
-            var cmd = new CheckCompatibilityCommand() {ImplementedProtocolVersion="3.0.0"};
+            Assembly assembly = typeof(AbstractCommand).Assembly;
+            FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
+            var cmd = new CheckCompatibilityCommand() {ImplementedProtocolVersion= fvi.FileVersion, ClientIdentification = clientIdentification};
             Send(cmd);
-
-            return WaitAndReceive<CheckCompatibilityResponse>().AvailableGames;
+            var rsp = WaitAndReceive<CheckCompatibilityResponse>();
+            return new Compatibility
+            {
+                Success = rsp.Success,
+                AvailableGames = rsp.AvailableGames,
+                ImplementedProtocolVersion = rsp.ImplementedProtocolVersion,
+                Message = rsp.Message,
+                MessageId = rsp.MessageId,
+                ServerIdentification = rsp.ServerIdentification,
+                SupportedLobbyTypes = rsp.SupportedLobbyTypes
+            };
         }
 
         protected override void Run()
@@ -212,7 +226,7 @@ namespace VirtualTaluva.Client.Protocol
                 try
                 {
                     AbstractCommand cmd = AbstractCommand.DeserializeCommand(line);
-                    if (cmd.CommandType == BluffinCommandEnum.Game)
+                    if (cmd.CommandType == TaluvaCommandEnum.Game)
                     {
                         var c = (IGameCommand) cmd;
 

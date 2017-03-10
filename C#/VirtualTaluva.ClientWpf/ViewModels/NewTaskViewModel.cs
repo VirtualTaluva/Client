@@ -8,6 +8,8 @@ namespace VirtualTaluva.ClientWpf.ViewModels
 {
     public class NewTaskViewModel : MultiCategoriesNewTabViewModel<AppCategoryEnum>
     {
+        protected override string IconImageName => "Flash";
+
         public class ActionButtonSectionOld : ActionButtonSection
         {
             public ActionButtonSectionOld()

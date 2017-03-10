@@ -151,9 +151,6 @@ namespace VirtualTaluva.Client.Windows.Forms.Game
                 m_Bets[i].Text = "";
             }
 
-            if (table.Params.Options.OptionType == GameTypeEnum.StudPoker)
-                m_Huds.ToList().ForEach(x => x.SetNoBlind());
-
             ResumeLayout();
         }
 
@@ -266,13 +263,8 @@ namespace VirtualTaluva.Client.Windows.Forms.Game
                 for (var i = 0; i < m_Huds.Length; ++i)
                 {
                     m_Huds[i].DoAction(GameActionEnum.DoNothing);
-                    m_Bets[i].Text = table.Seats[i].IsEmpty || table.Seats[i].Player.MoneyBetAmnt == 0 ? "" : "$" + table.Seats[i].Player.MoneyBetAmnt;
-                }
 
-                if (table.Params.Options.OptionType == GameTypeEnum.StudPoker)
-                {
-                    //Set FirstTalker Icon
-                    table.Seats.Where(x => x.SeatAttributes.Contains(SeatAttributeEnum.FirstTalker)).ToList().ForEach(x => m_Huds[x.NoSeat].SetFirstTalker());
+                    m_Bets[i].Text = i >= table.Seats.Count || table.Seats[i].IsEmpty || table.Seats[i].Player.MoneyBetAmnt == 0 ? "" : "$" + table.Seats[i].Player.MoneyBetAmnt;
                 }
                 //Set Small Blind Icon
                 table.Seats.Where(x => x.SeatAttributes.Contains(SeatAttributeEnum.SmallBlind)).ToList().ForEach(x => m_Huds[x.NoSeat].SetSmallBlind());

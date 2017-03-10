@@ -64,8 +64,8 @@ namespace VirtualTaluva.Client
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableList.Location = new System.Drawing.Point(0, 149);
             this.tableList.Name = "tableList";
-            //this.tableList.ShowRegisteredMode = false;
-            //this.tableList.ShowQuickMode = true;
+            this.tableList.ShowRegisteredMode = false;
+            this.tableList.ShowQuickMode = true;
             this.tableList.Size = new System.Drawing.Size(477, 142);
             this.tableList.TabIndex = 7;
             this.tableList.OnSelectionChanged += new System.EventHandler(this.tableList_OnSelectionChanged);

@@ -63,23 +63,23 @@ namespace VirtualTaluva.Client.Windows.Forms.Lobby
         private void SetBetLimits()
         {
             lstBetLimit.Items.Clear();
-            lstBetLimit.Items.AddRange(m_Game.AvailableLimits.Select(EnumFactory<LimitTypeEnum>.ToString).ToArray());
-            lstBetLimit.SelectedIndex = 0;
+            //lstBetLimit.Items.AddRange(m_Game.AvailableLimits.Select(EnumFactory<LimitTypeEnum>.ToString).ToArray());
+            //lstBetLimit.SelectedIndex = 0;
         }
 
         private void SetBlindTypes()
         {
             lstBlinds.Items.Clear();
-            lstBlinds.Items.AddRange(m_Game.AvailableBlinds.Select(EnumFactory<BlindTypeEnum>.ToString).ToArray());
-            lstBlinds.SelectedIndex = 0;
+            //lstBlinds.Items.AddRange(m_Game.AvailableBlinds.Select(EnumFactory<BlindTypeEnum>.ToString).ToArray());
+            //lstBlinds.SelectedIndex = 0;
             SetBlindRules();
         }
 
         private void SetBlindRules()
         {
-            var blind = EnumFactory<BlindTypeEnum>.Parse((string)lstBlinds.SelectedItem);
-            ucAnte.Visible = blind == BlindTypeEnum.Antes;
-            ucBlinds.Visible = blind == BlindTypeEnum.Blinds;
+            //var blind = EnumFactory<BlindTypeEnum>.Parse((string)lstBlinds.SelectedItem);
+            //ucAnte.Visible = blind == BlindTypeEnum.Antes;
+            //ucBlinds.Visible = blind == BlindTypeEnum.Blinds;
         }
 
         private void SetWaitingTimes()
@@ -130,14 +130,8 @@ namespace VirtualTaluva.Client.Windows.Forms.Lobby
                 GameTypeOptions options = null;
                 switch (m_Game.GameType)
                 {
-                    case GameTypeEnum.CommunityCardsPoker:
-                        options = new GameTypeOptionsCommunity();
-                        break;
-                    case GameTypeEnum.StudPoker:
-                        options = new GameTypeOptionsStud();
-                        break;
-                    case GameTypeEnum.DrawPoker:
-                        options = new GameTypeOptionsDraw();
+                    case GameTypeEnum.Standard:
+                        options = new GameTypeOptionsStandard();
                         break;
                 }
                 BlindTypeEnum blind = EnumFactory<BlindTypeEnum>.Parse((string) lstBlinds.SelectedItem);

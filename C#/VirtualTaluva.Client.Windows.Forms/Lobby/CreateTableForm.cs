@@ -15,7 +15,8 @@ namespace VirtualTaluva.Client.Windows.Forms.Lobby
         {
             Params = null;
             InitializeComponent();
-
+            if(games == null)
+                games = new GameInfo[0];
             var infos = games as GameInfo[] ?? games.ToArray();
             foreach (var type in infos.Select(r => r.GameType).Distinct())
             {

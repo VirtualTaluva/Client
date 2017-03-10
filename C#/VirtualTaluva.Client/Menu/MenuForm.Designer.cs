@@ -32,9 +32,9 @@ namespace VirtualTaluva.Client.Menu
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
             this.lblServerAddress = new System.Windows.Forms.Label();
-            this.btnQuickMode = new Button();
-            this.btnRegisteredModeConnect = new Button();
-            this.btnRegisteredModeRegister = new Button();
+            this.btnQuickMode = new System.Windows.Forms.Button();
+            this.btnRegisteredModeConnect = new System.Windows.Forms.Button();
+            this.btnRegisteredModeRegister = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.nudServerPort = new System.Windows.Forms.NumericUpDown();
             this.clstServerName = new System.Windows.Forms.ComboBox();
@@ -118,7 +118,7 @@ namespace VirtualTaluva.Client.Menu
             this.nudServerPort.Size = new System.Drawing.Size(84, 23);
             this.nudServerPort.TabIndex = 17;
             this.nudServerPort.Value = new decimal(new int[] {
-            4242,
+            42042,
             0,
             0,
             0});

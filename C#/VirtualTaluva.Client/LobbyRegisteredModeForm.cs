@@ -17,7 +17,7 @@ namespace VirtualTaluva.Client
             m_Server.ServerLost += m_Server_ServerLost;
             InitializeComponent();
             tableList.TableFormFactory = this;
-            tableList.SetServer(m_Server);
+            tableList.SetServer(m_Server, typeof(Program).Assembly.FullName);
             Text = server.User.DisplayName + Resources.LobbyRegisteredModeForm_LobbyRegisteredModeForm_Tild + lblTitle.Text;
             lblServer.Text = string.Format("{0} on port {1}", m_Server.ServerAddress, m_Server.ServerPort);
         }

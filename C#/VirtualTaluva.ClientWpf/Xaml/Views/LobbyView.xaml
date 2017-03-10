@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="VirtualTaluva.ClientWpf.Xaml.Views.LobbyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VirtualTaluva.ClientWpf.Xaml.Views"
+             xmlns:customControls="clr-namespace:Com.Ericmas001.Windows.Xaml.CustomControls;assembly=Com.Ericmas001.Windows.Xaml"
+             xmlns:vm="clr-namespace:VirtualTaluva.ClientWpf.ViewModels"
+             mc:Ignorable="d" d:DataContext="{d:DesignInstance Type=vm:LobbyViewModel, IsDesignTimeCreatable=True}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center">
+            <customControls:CoolButton HorizontalAlignment="Center" Content="Disconnect" TextMargin="5,0,5,5" Margin="10" FontWeight="Bold" ButtonColor="DarkRed" Command="{Binding DisconnectCommand}"/>
+        </StackPanel>
+        <ContentPresenter Content="{Binding LoadingDataVm}" ContentTemplate="{StaticResource LoadingDataTemplate}" />
+    </Grid>
+</UserControl>

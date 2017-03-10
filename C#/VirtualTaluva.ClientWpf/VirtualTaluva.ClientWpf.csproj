@@ -42,6 +42,9 @@
       <HintPath>..\packages\Com.Ericmas001.Common.0.4.6\lib\net40\Com.Ericmas001.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Com.Ericmas001.Net.Protocol">
+      <HintPath>..\References\Com.Ericmas001.Net.Protocol.dll</HintPath>
+    </Reference>
     <Reference Include="Com.Ericmas001.Windows, Version=0.4.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Com.Ericmas001.Windows.0.4.6\lib\net45\Com.Ericmas001.Windows.dll</HintPath>
       <Private>True</Private>
@@ -81,6 +84,14 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="VirtualTaluva.Protocol, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Protocol\C#\VirtualTaluva.Protocol\bin\Debug\VirtualTaluva.Protocol.dll</HintPath>
+    </Reference>
+    <Reference Include="VirtualTaluva.Protocol.DataTypes, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Protocol\C#\VirtualTaluva.Protocol.DataTypes\bin\Debug\VirtualTaluva.Protocol.DataTypes.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -106,6 +117,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Xaml\Views\Sections\QuickIdentifySectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Xaml\Views\LobbyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Xaml\Windows\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -121,11 +140,18 @@
     <Compile Include="Attributes\AppCategoryAttribute.cs" />
     <Compile Include="Enums\AppCategoryEnum.cs" />
     <Compile Include="OldMainViewModel.cs" />
+    <Compile Include="ViewModels\LobbyViewModel.cs" />
     <Compile Include="ViewModels\NewTaskViewModel.cs" />
     <Compile Include="ViewModels\QuickIndentify\QuickIdentifySection.cs" />
     <Compile Include="ViewModels\Register\RegisterSection.cs" />
     <Compile Include="ViewModels\SignInRegistered\SignInRegisteredSection.cs" />
     <Compile Include="ViewModels\TaluvaCategorySection.cs" />
+    <Compile Include="Xaml\Views\Sections\QuickIdentifySectionView.xaml.cs">
+      <DependentUpon>QuickIdentifySectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xaml\Views\LobbyView.xaml.cs">
+      <DependentUpon>LobbyView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Xaml\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -168,12 +194,21 @@
       <Project>{12d7d514-4c0f-49fe-8f9b-5d3267ad5ac9}</Project>
       <Name>VirtualTaluva.Client.DataTypes</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VirtualTaluva.Client.Protocol\VirtualTaluva.Client.Protocol.csproj">
+      <Project>{29F0952B-EF3C-465F-94D7-2DB43C8116E4}</Project>
+      <Name>VirtualTaluva.Client.Protocol</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="taluva_icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\taluva.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Grid Filled-50.png" />
+    <Resource Include="Resources\Lightning Bolt Filled-50.png" />
+    <Resource Include="Resources\Play Filled-50.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

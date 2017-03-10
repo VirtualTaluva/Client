@@ -12,6 +12,7 @@ namespace VirtualTaluva.Client.Windows.Forms.Lobby
     public partial class PokerTableList : UserControl
     {
         private LobbyTcpClient m_Server;
+        private string m_ClientId;
 
         public bool ShowQuickMode { private get; set; }
         public bool ShowRegisteredMode { private get; set; }
@@ -23,8 +24,9 @@ namespace VirtualTaluva.Client.Windows.Forms.Lobby
             InitializeComponent();
         }
 
-        public void SetServer(LobbyTcpClient server)
+        public void SetServer(LobbyTcpClient server, string clientId)
         {
+            m_ClientId = clientId;
             m_Server = server;
             m_Server.ServerLost += m_Server_ServerLost;
         }
@@ -73,7 +75,7 @@ namespace VirtualTaluva.Client.Windows.Forms.Lobby
         }
         public void AddTable()
         {
-            var ctf = new CreateTableForm(m_Server.PlayerName, LobbyType, m_Server.GetSupportedRules());
+            var ctf = new CreateTableForm(m_Server.PlayerName, LobbyType, m_Server.CheckServerCompatibility(m_ClientId).AvailableGames);
             ctf.ShowDialog();
             var parms = ctf.Params;
             if(parms != null)

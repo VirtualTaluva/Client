@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="VirtualTaluva.ClientWpf.Xaml.Views.Sections.QuickIdentifySectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:customControls="clr-namespace:Com.Ericmas001.Windows.Xaml.CustomControls;assembly=Com.Ericmas001.Windows.Xaml"
+             xmlns:vm="clr-namespace:VirtualTaluva.ClientWpf.ViewModels.QuickIndentify"
+             mc:Ignorable="d" d:DataContext="{d:DesignInstance Type=vm:QuickIdentifySection, IsDesignTimeCreatable=True}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel HorizontalAlignment="Center">
+        <Label HorizontalAlignment="Center">Url:</Label>
+        <TextBox HorizontalAlignment="Center" Text="{Binding Url, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="250" />
+        <Label HorizontalAlignment="Center">Port:</Label>
+        <TextBox HorizontalAlignment="Center" Text="{Binding Port, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="50" />
+        <Label HorizontalAlignment="Center">Player Name:</Label>
+        <TextBox HorizontalAlignment="Center" Text="{Binding PlayerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="150" />
+        <customControls:CoolButton HorizontalAlignment="Center" Content="GO" TextMargin="5,0,5,5" Margin="10" FontWeight="Bold" ButtonColor="Orange" Command="{Binding OkCommand}"/>
+    </StackPanel>
+</UserControl>

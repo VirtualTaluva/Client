@@ -60,6 +60,9 @@
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="VirtualTaluva.Protocol">
+      <HintPath>..\..\..\Protocol\C#\VirtualTaluva.Protocol\bin\Debug\VirtualTaluva.Protocol.dll</HintPath>
+    </Reference>
     <Reference Include="VirtualTaluva.Protocol.DataTypes">
       <HintPath>..\..\..\Protocol\C#\VirtualTaluva.Protocol.DataTypes\bin\Debug\VirtualTaluva.Protocol.DataTypes.dll</HintPath>
     </Reference>
@@ -87,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardTile.cs" />
+    <Compile Include="Compatibility.cs" />
     <Compile Include="Enums\LandEnum.cs" />
     <Compile Include="EventHandling\MinMaxEventArgs.cs" />
     <Compile Include="EventHandling\PokerGameObserver.cs" />

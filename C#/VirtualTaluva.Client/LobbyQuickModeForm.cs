@@ -17,7 +17,7 @@ namespace VirtualTaluva.Client
             m_Server.ServerLost += m_Server_ServerLost;
             InitializeComponent();
             tableList.TableFormFactory = this;
-            tableList.SetServer(m_Server);
+            tableList.SetServer(m_Server, typeof(Program).Assembly.FullName);
             Text = server.PlayerName + Resources.LobbyRegisteredModeForm_LobbyRegisteredModeForm_Tild + lblTitle.Text;
             lblPlayerName.Text = server.PlayerName;
             tableList.RefreshList();
