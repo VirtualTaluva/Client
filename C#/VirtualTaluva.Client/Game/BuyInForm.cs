@@ -15,12 +15,12 @@ namespace VirtualTaluva.Client.Game
         {
             InitializeComponent();
             lblAccountMoney.Text = Resources.BuyInForm_BuyInForm_Dollar + user.TotalMoney;
-            lblMoneyUnit.Text = Resources.BuyInForm_BuyInForm_Dollar + parms.GameSize;
+            //lblMoneyUnit.Text = Resources.BuyInForm_BuyInForm_Dollar + parms.GameSize;
             //lblMin.Text = Resources.BuyInForm_BuyInForm_Dollar + parms.MinimumBuyInAmount;
             //lblMax.Text = Resources.BuyInForm_BuyInForm_Dollar + Math.Min(parms.MaximumBuyInAmount, user.TotalMoney);
             //nudBuyIn.Minimum = parms.MinimumBuyInAmount;
             //nudBuyIn.Maximum = (decimal)Math.Min(parms.MaximumBuyInAmount, user.TotalMoney);
-            nudBuyIn.Increment = parms.GameSize;
+            //nudBuyIn.Increment = parms.GameSize;
             //nudBuyIn.Value = parms.MinimumBuyInAmount;
         }
 

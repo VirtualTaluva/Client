@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
@@ -31,6 +32,21 @@ namespace VirtualTaluva.ClientWpf.Xaml.Windows
         private void FrameworkElement_OnLoaded(object sender, RoutedEventArgs e)
         {
             ((TabControl)sender).SelectedIndex = 0;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MainWindowViewModel mvm = DataContext as MainWindowViewModel;
+            if (mvm != null)
+            {
+                if (mvm.Server != null && mvm.Server.IsConnected)
+                    mvm.Server.Disconnect();
+            }
+        }
+
+        private void Window_Closed(object sender, System.EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

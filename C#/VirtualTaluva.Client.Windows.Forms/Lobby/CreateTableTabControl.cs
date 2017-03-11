@@ -116,14 +116,14 @@ namespace VirtualTaluva.Client.Windows.Forms.Lobby
                     case LobbyTypeEnum.QuickMode:
                         lobby = new LobbyOptionsQuickMode()
                         {
-                            StartingAmount = (int)nudStartingAmount.Value,
+                            //StartingAmount = (int)nudStartingAmount.Value,
                         };
                         break;
 
                     case LobbyTypeEnum.RegisteredMode:
                         lobby = new LobbyOptionsRegisteredMode()
                         {
-                            IsMaximumBuyInLimited = rdBuyInLimited.Checked,
+                            //IsMaximumBuyInLimited = rdBuyInLimited.Checked,
                         };
                         break;
                 }
@@ -146,13 +146,13 @@ namespace VirtualTaluva.Client.Windows.Forms.Lobby
                     WaitingTimes = new ConfigurableWaitingTimes()
                     {
                         AfterPlayerAction = (int)nudWTAPlayerAction.Value,
-                        AfterBoardDealed = (int)nudWTABoardDealed.Value,
-                        AfterPotWon = (int)nudWTAPotWon.Value,
+                        //AfterBoardDealed = (int)nudWTABoardDealed.Value,
+                        //AfterPotWon = (int)nudWTAPotWon.Value,
                     },
                     Lobby = lobby,
-                    Blind = blind,
-                    Limit = limit,
-                    GameSize = moneyUnit,
+                    //Blind = blind,
+                    //Limit = limit,
+                    //GameSize = moneyUnit,
                 };
             }
         }

@@ -300,8 +300,8 @@ namespace VirtualTaluva.Client.Protocol
             lock (m_PokerTable)
             {
                 IsPlaying = cmd.GameHasStarted;
-                InitPotAmounts(cmd.PotsAmount, cmd.TotalPotAmount);
-                SetCards(cmd.BoardCards);
+                //InitPotAmounts(cmd.PotsAmount, cmd.TotalPotAmount);
+                //SetCards(cmd.BoardCards);
                 m_PokerTable.Params = cmd.Params;
                 m_PokerTable.People.Clear();
 

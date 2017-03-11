@@ -73,7 +73,9 @@ namespace VirtualTaluva.Client.Protocol
                 m_Clients.Remove(idGame);
 
                 if (client != null)
-                    client.Disconnect();
+                {
+                    Send(new LeaveTableCommand{TableId = idGame});
+                }
             }
         }
 

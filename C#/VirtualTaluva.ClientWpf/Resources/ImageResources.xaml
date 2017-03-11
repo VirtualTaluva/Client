@@ -2,6 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <BitmapImage x:Key="Taluva" UriSource="/VirtualTaluva.ClientWpf;component/Resources/taluva.png" />
     <BitmapImage x:Key="Play" UriSource="/VirtualTaluva.ClientWpf;component/Resources/Play Filled-50.png" />
-    <BitmapImage x:Key="Grid" UriSource="/VirtualTaluva.ClientWpf;component/Resources/Grid Filled-50.png" />
+    <BitmapImage x:Key="Controller" UriSource="/VirtualTaluva.ClientWpf;component/Resources/Controller Filled-50.png" />
     <BitmapImage x:Key="Flash" UriSource="/VirtualTaluva.ClientWpf;component/Resources/Lightning Bolt Filled-50.png" />
+    <BitmapImage x:Key="Error" UriSource="/VirtualTaluva.ClientWpf;component/Resources/Sign-Error-icon.png" />
+    <BitmapImage x:Key="Plus" UriSource="/VirtualTaluva.ClientWpf;component/Resources/Plus Math-26.png" />
 </ResourceDictionary>

@@ -250,8 +250,8 @@ namespace VirtualTaluva.Client.Windows.Forms.Game
                 }
 
                 var j = 0;
-                for (; j < table.Cards.Length; ++j)
-                    m_Board[j].Card = table.Cards[j];
+                //for (; j < table.Cards.Length; ++j)
+                //    m_Board[j].Card = table.Cards[j];
                 for (; j < 5; ++j)
                     m_Board[j].Card = GameCard.NoCard;
 

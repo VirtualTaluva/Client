@@ -12,7 +12,7 @@ namespace VirtualTaluva.Client.Game
 
         protected override int GetSitInMoneyAmount()
         {
-            return ((LobbyOptionsQuickMode)m_Game.Table.Params.Lobby).StartingAmount;
+            return 0;//((LobbyOptionsQuickMode)m_Game.Table.Params.Lobby).StartingAmount;
         }
     }
 }

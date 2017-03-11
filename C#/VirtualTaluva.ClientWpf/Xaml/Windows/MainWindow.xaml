@@ -7,7 +7,7 @@
         xmlns:viewModels="clr-namespace:VirtualTaluva.ClientWpf.ViewModels"
         xmlns:helpers="clr-namespace:Com.Ericmas001.Windows.Xaml.Helpers;assembly=Com.Ericmas001.Windows.Xaml"
         mc:Ignorable="d"
-        Title="Virtual Taluva" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="MainWindow_OnLoaded" Icon="/VirtualTaluva.ClientWpf;component/Resources/taluva.png">
+        Title="Virtual Taluva" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="MainWindow_OnLoaded" Icon="/VirtualTaluva.ClientWpf;component/Resources/taluva.png" Closing="Window_Closing" Closed="Window_Closed">
 
     <Window.DataContext>
         <viewModels:MainWindowViewModel />

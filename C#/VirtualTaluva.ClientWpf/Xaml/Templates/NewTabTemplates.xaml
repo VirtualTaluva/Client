@@ -12,6 +12,12 @@
     <DataTemplate DataType="{x:Type viewModels:LobbyViewModel}">
         <v:LobbyView />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:CreateTableViewModel}">
+        <v:CreateTableView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:GameViewModel}">
+        <v:GameView />
+    </DataTemplate>
     <DataTemplate DataType="{x:Type vmQuickIdentify:QuickIdentifySection}">
         <sections:QuickIdentifySectionView />
     </DataTemplate>

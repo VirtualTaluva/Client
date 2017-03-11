@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Shell;
 using System.Windows.Threading;
 using Com.Ericmas001.Windows.ViewModels;
+using VirtualTaluva.Client.Protocol;
 
 namespace VirtualTaluva.ClientWpf.ViewModels
 {
@@ -10,6 +11,16 @@ namespace VirtualTaluva.ClientWpf.ViewModels
     {
         private readonly NewTaskViewModel disconnectedTab = new NewTaskViewModel();
         private readonly Dispatcher currentDispatcher = Dispatcher.CurrentDispatcher;
+        private LobbyTcpClientQuickMode m_Server;
+
+        public LobbyTcpClientQuickMode Server
+        {
+            get { return m_Server; }
+            set
+            {
+                Set(ref m_Server, value);
+            }
+        }
 
         public bool Connected
         {
@@ -18,6 +29,9 @@ namespace VirtualTaluva.ClientWpf.ViewModels
             {
                 if (m_Connected && !value)
                 {
+                    if (m_Server != null && m_Server.IsConnected)
+                        m_Server.Disconnect();
+                    m_Server = null;
                     currentDispatcher.Invoke(() => Tabs.Clear());
                     currentDispatcher.Invoke(() => Tabs.Add(disconnectedTab));
                     SelectedTab = disconnectedTab;
